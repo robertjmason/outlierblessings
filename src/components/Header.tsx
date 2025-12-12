@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.jpeg";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   return (
@@ -7,10 +7,7 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Outlier Blessings" className="h-14 w-auto" />
-            <span className="font-serif text-2xl tracking-wide text-foreground hidden sm:inline">
-              Outlier Blessings
-            </span>
+            <img src={logo} alt="Outlier Blessings" className="h-16 w-auto" />
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
