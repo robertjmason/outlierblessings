@@ -6,8 +6,11 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <nav className="flex items-center justify-between">
-          <Link to="/" className="hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Outlier Blessings" className="h-12 w-auto" />
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <img src={logo} alt="Outlier Blessings" className="h-14 w-auto" />
+            <span className="font-serif text-2xl tracking-wide text-foreground hidden sm:inline">
+              Outlier Blessings
+            </span>
           </Link>
           
           <div className="hidden md:flex items-center gap-8">
