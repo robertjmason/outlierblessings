@@ -35,7 +35,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Outlier Blessings <onboarding@resend.dev>",
+        from: "Outlier Blessings <info@outlierhealing.com>",
         to: ["info@outlierhealing.com"],
         subject: `New Inquiry: ${productName}`,
         html: `
@@ -67,7 +67,7 @@ const handler = async (req: Request): Promise<Response> => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Outlier Blessings <onboarding@resend.dev>",
+        from: "Outlier Blessings <info@outlierhealing.com>",
         to: [email],
         subject: "We received your inquiry!",
         html: `
