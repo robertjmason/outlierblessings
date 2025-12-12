@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface InquiryModalProps {
   isOpen: boolean;
@@ -50,17 +51,38 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Inquiry sent!",
-      description: "We'll be in touch soon to discuss your custom cross.",
-    });
-    
-    setFormData({ name: "", email: "", phone: "", contactMethod: "email" });
-    setIsSubmitting(false);
-    onClose();
+    try {
+      const { data, error } = await supabase.functions.invoke('send-inquiry', {
+        body: {
+          productName,
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          phone: formData.phone.trim() || undefined,
+          contactMethod: formData.contactMethod,
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: "Inquiry sent!",
+        description: "We'll be in touch soon to discuss your custom cross.",
+      });
+      
+      setFormData({ name: "", email: "", phone: "", contactMethod: "email" });
+      onClose();
+    } catch (error: any) {
+      console.error("Error sending inquiry:", error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again or contact us directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
