@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getProductBySlug, products } from "@/data/products";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,6 +11,10 @@ const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const product = getProductBySlug(slug || "");
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!product) {
     return (
