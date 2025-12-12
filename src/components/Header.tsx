@@ -16,9 +16,6 @@ const Header = () => {
             <Link to="/#collection" className="link-elegant text-sm uppercase">
               Collection
             </Link>
-            <Link to="/product/santorini" className="link-elegant text-sm uppercase">
-              Shop
-            </Link>
           </div>
         </nav>
       </div>
