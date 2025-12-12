@@ -153,7 +153,11 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
             </RadioGroup>
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <p className="text-xs text-muted-foreground text-center italic">
+            We will never sell your info. Ever.
+          </p>
+
+          <div className="flex gap-4 pt-2">
             <Button
               type="button"
               variant="outline"
