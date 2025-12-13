@@ -22,4 +22,13 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
+  <!-- Netlify Forms - Hidden form for detection -->
+  <form name="product-inquiry" netlify netlify-honeypot="bot-field" hidden>
+    <input type="text" name="product" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="tel" name="phone" />
+    <input type="text" name="contactMethod" />
+  </form>
+  </body>
 </html>
