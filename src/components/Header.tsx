@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo.png";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   return (
@@ -9,7 +9,7 @@ const Header = () => {
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
             <img src={logo} alt="Outlier Blessings" className="h-16 w-auto" />
           </Link>
-          
+
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="link-elegant text-sm uppercase">
               Home
