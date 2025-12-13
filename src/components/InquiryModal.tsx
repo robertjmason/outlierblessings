@@ -10,7 +10,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 
 interface InquiryModalProps {
   isOpen: boolean;
@@ -52,18 +51,23 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
     setIsSubmitting(true);
     
     try {
-      const { data, error } = await supabase.functions.invoke('send-inquiry', {
-        body: {
-          productName,
-          name: formData.name.trim(),
-          email: formData.email.trim(),
-          phone: formData.phone.trim() || undefined,
-          contactMethod: formData.contactMethod,
-        },
+      // Create FormData for Netlify Forms
+      const netlifyFormData = new FormData();
+      netlifyFormData.append('form-name', 'product-inquiry');
+      netlifyFormData.append('product', productName);
+      netlifyFormData.append('name', formData.name.trim());
+      netlifyFormData.append('email', formData.email.trim());
+      netlifyFormData.append('phone', formData.phone.trim() || 'Not provided');
+      netlifyFormData.append('contactMethod', formData.contactMethod);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(netlifyFormData as any).toString(),
       });
 
-      if (error) {
-        throw error;
+      if (!response.ok) {
+        throw new Error('Form submission failed');
       }
 
       toast({
@@ -94,13 +98,28 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
           </DialogTitle>
         </DialogHeader>
         
-        <form onSubmit={handleSubmit} className="space-y-6 mt-4">
+        <form 
+          onSubmit={handleSubmit} 
+          className="space-y-6 mt-4"
+          name="product-inquiry"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          {/* Hidden fields for Netlify */}
+          <input type="hidden" name="form-name" value="product-inquiry" />
+          <div style={{ display: 'none' }}>
+            <label>
+              Don't fill this out if you're human: <input name="bot-field" />
+            </label>
+          </div>
+
           <div className="space-y-2">
             <Label htmlFor="product" className="font-sans text-sm text-muted-foreground">
               Product
             </Label>
             <Input
               id="product"
+              name="product"
               value={productName}
               disabled
               className="bg-muted border-border font-serif"
@@ -113,11 +132,13 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
             </Label>
             <Input
               id="name"
+              name="name"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               placeholder="Enter your name"
               className="border-border focus:ring-accent"
               maxLength={100}
+              required
             />
           </div>
 
@@ -127,12 +148,14 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
             </Label>
             <Input
               id="email"
+              name="email"
               type="email"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               placeholder="your@email.com"
               className="border-border focus:ring-accent"
               maxLength={255}
+              required
             />
           </div>
 
@@ -142,6 +165,7 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
             </Label>
             <Input
               id="phone"
+              name="phone"
               type="tel"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -156,6 +180,7 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
               Preferred Contact Method
             </Label>
             <RadioGroup
+              name="contactMethod"
               value={formData.contactMethod}
               onValueChange={(value) => setFormData({ ...formData, contactMethod: value })}
               className="flex gap-6"
