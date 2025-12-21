@@ -1,6 +1,7 @@
 import santoriniImg from "@/assets/santorini.png";
 import redeemedImg from "@/assets/redeemed.jpg";
 import oHolyNightImg from "@/assets/o-holy-night.jpg";
+import shatteredImg from "@/assets/shattered1.jpeg";
 
 export interface ProductSize {
   size: string;
@@ -49,6 +50,16 @@ export const products: Product[] = [
     image: oHolyNightImg,
     sizes: [
       { size: '14"', price: 50 },
+    ],
+  },
+  {
+    id: "shattered-but-not-broken",
+    name: "Shattered But Not Broken",
+    slug: "shattered-but-not-broken",
+    description: "Beautiful hand-placed shattered tempered glass illustrating how we may be shattered but never broken thanks to the love of the Lord.",
+    image: shatteredImg,
+    sizes: [
+      { size: '14"', price: 200 },
     ],
   },
 ];
