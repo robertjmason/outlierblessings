@@ -1,7 +1,7 @@
 import santoriniImg from "@/assets/santorini.png";
 import redeemedImg from "@/assets/redeemed.jpg";
 import oHolyNightImg from "@/assets/o-holy-night.jpg";
-import shatteredImg from "@/assets/shattered1.jpeg";
+import shatteredImg from "@/assets/shattered1.png";
 
 export interface ProductSize {
   size: string;
