@@ -20,11 +20,11 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
       className="card-product group block"
       style={{ animationDelay: `${index * 150}ms` }}
     >
-      <div className="aspect-[3/4] overflow-hidden bg-navy/5">
+      <div className="overflow-hidden bg-navy/5">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
         />
       </div>
       

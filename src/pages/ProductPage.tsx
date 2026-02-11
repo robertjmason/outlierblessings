@@ -52,11 +52,11 @@ const ProductPage = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Product Image */}
             <div className="opacity-0 animate-fade-in">
-              <div className="aspect-[3/4] overflow-hidden rounded-sm bg-navy/5">
+              <div className="overflow-hidden rounded-sm bg-navy/5">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto"
                 />
               </div>
             </div>
@@ -120,11 +120,11 @@ const ProductPage = () => {
                     to={`/product/${p.slug}`}
                     className="card-product group block"
                   >
-                    <div className="aspect-square overflow-hidden bg-navy/5">
+                    <div className="overflow-hidden bg-navy/5">
                       <img
                         src={p.image}
                         alt={p.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-auto transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
                     <div className="p-4 text-center">

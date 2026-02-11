@@ -2,9 +2,9 @@ import founderImg from "@/assets/founder.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen pt-20 bg-background">
+    <section className="pt-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-[calc(100vh-5rem)]">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12">
           {/* Text Content */}
           <div className="order-2 lg:order-1 py-12 lg:py-0">
             <h1 className="heading-display text-foreground mb-8 animate-fade-in">

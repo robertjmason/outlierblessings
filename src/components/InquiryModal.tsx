@@ -152,7 +152,7 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="your@email.com"
+                  placeholder=""
                   className="border-border focus:ring-accent"
                   maxLength={255}
                   required
@@ -169,7 +169,7 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
                   type="tel"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="(555) 123-4567"
+                  placeholder=""
                   className="border-border focus:ring-accent"
                   maxLength={20}
               />
