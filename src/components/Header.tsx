@@ -1,7 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Header = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleCollectionClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/#collection");
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-6 py-4">
@@ -14,9 +26,9 @@ const Header = () => {
             <Link to="/" className="link-elegant text-sm uppercase">
               Home
             </Link>
-            <Link to="/#collection" className="link-elegant text-sm uppercase">
+            <a href="/#collection" onClick={handleCollectionClick} className="link-elegant text-sm uppercase">
               Collection
-            </Link>
+            </a>
           </div>
         </nav>
       </div>
