@@ -7,13 +7,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, index }: ProductCardProps) => {
-  const lowestPrice = Math.min(...product.sizes.map(s => s.price));
-  const highestPrice = Math.max(...product.sizes.map(s => s.price));
-  
-  const priceDisplay = lowestPrice === highestPrice 
-    ? `$${lowestPrice}`
-    : `$${lowestPrice} – $${highestPrice}`;
-
   return (
     <Link 
       to={`/product/${product.slug}`}
@@ -32,8 +25,8 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
         <h3 className="font-serif text-xl tracking-wide text-foreground mb-2">
           {product.name}
         </h3>
-        <p className="font-sans text-sm text-accent font-medium">
-          {priceDisplay}
+        <p className="font-sans text-sm text-muted-foreground">
+          {product.availability}
         </p>
       </div>
     </Link>

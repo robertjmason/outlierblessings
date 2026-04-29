@@ -71,27 +71,9 @@ const ProductPage = () => {
                 {product.description}
               </p>
 
-              {/* Sizes & Prices */}
-              <div className="mb-10">
-                <h3 className="font-sans text-sm uppercase tracking-widest text-muted-foreground mb-4">
-                  Available Sizes
-                </h3>
-                <div className="space-y-3">
-                  {product.sizes.map((size) => (
-                    <div 
-                      key={size.size}
-                      className="flex items-center justify-between py-3 px-4 border border-border rounded-sm"
-                    >
-                      <span className="font-serif text-lg text-foreground">
-                        {size.size}
-                      </span>
-                      <span className="font-sans text-accent font-medium">
-                        ${size.price}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <p className="font-sans text-muted-foreground mb-10">
+                {product.availability}
+              </p>
 
               {/* Inquiry Button */}
               <Button

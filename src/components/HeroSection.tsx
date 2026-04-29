@@ -7,36 +7,40 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-12">
           {/* Text Content */}
           <div className="order-2 lg:order-1 py-12 lg:py-0">
-            <h1 className="heading-display text-foreground mb-8 animate-fade-in">
-              Outlier Blessings
-            </h1>
-            
-            <div 
+            <div className="mb-8 animate-fade-in flex justify-center lg:justify-center">
+              <img
+                src="/Final Outlier Blessings Name Only Logo.png"
+                alt="Outlier Blessings"
+                className="w-full max-w-md"
+              />
+            </div>
+
+            <div
               className="space-y-6 opacity-0 animate-fade-in"
               style={{ animationDelay: "200ms" }}
             >
               <p className="text-body text-lg leading-relaxed">
                 We're here to bring faith and inspiration into your daily life. Your spiritual journey matters, and we're honored to craft meaningful symbols of hope and resilience for you.
               </p>
-              
+
               <p className="text-body text-lg leading-relaxed">
                 Each handmade cross is personally crafted with your family name and favorite Bible verse engraved on the back, making every piece uniquely yours.
               </p>
-              
+
               <p className="font-serif text-accent text-lg italic">
                 10% of every purchase goes back to support our church community.
               </p>
-              
+
               <p className="text-body text-lg leading-relaxed">
                 Start your order today by contacting us to discuss the details!
               </p>
             </div>
 
-            <div 
+            <div
               className="mt-10 opacity-0 animate-fade-in"
               style={{ animationDelay: "400ms" }}
             >
-              <a 
+              <a
                 href="#collection"
                 className="btn-hero inline-block"
               >
@@ -46,7 +50,7 @@ const HeroSection = () => {
           </div>
 
           {/* Image */}
-          <div 
+          <div
             className="order-1 lg:order-2 opacity-0 animate-fade-in-slow"
             style={{ animationDelay: "300ms" }}
           >
