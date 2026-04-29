@@ -3,7 +3,10 @@
     "allow": [
       "Exec(npx tsc)",
       "Exec(printf)",
-      "Exec(/bin/ls)"
+      "Exec(/bin/ls)",
+      "Exec(rg)",
+      "Exec(sed)",
+      "Exec(npx)"
     ]
   }
 }

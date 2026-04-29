@@ -1,9 +1,14 @@
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetClose, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import logo from "../assets/logo.png";
 
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const handleCollectionClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -12,6 +17,7 @@ const Header = () => {
     } else {
       navigate("/#collection");
     }
+    setMobileNavOpen(false);
   };
 
   return (
@@ -33,6 +39,40 @@ const Header = () => {
               About the Artist
             </Link>
           </div>
+
+          <Sheet open={mobileNavOpen} onOpenChange={setMobileNavOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="md:hidden"
+                aria-label="Open navigation menu"
+              >
+                <Menu className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="md:hidden">
+              <SheetTitle className="sr-only">Navigation menu</SheetTitle>
+              <SheetDescription className="sr-only">Navigate to the main pages of the site.</SheetDescription>
+              <nav className="mt-10 flex flex-col gap-6">
+                <SheetClose asChild>
+                  <Link to="/" className="link-elegant text-sm uppercase">
+                    Home
+                  </Link>
+                </SheetClose>
+                <SheetClose asChild>
+                  <a href="/#collection" onClick={handleCollectionClick} className="link-elegant text-sm uppercase">
+                    Collection
+                  </a>
+                </SheetClose>
+                <SheetClose asChild>
+                  <Link to="/about-the-artist" className="link-elegant text-sm uppercase">
+                    About the Artist
+                  </Link>
+                </SheetClose>
+              </nav>
+            </SheetContent>
+          </Sheet>
         </nav>
       </div>
     </header>

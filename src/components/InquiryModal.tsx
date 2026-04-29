@@ -77,7 +77,7 @@ const InquiryModal = ({ isOpen, onClose, productName }: InquiryModalProps) => {
 
       setFormData({ name: "", email: "", phone: "", contactMethod: "email" });
       onClose();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error sending inquiry:", error);
       toast({
         title: "Something went wrong",
