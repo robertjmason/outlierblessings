@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Exec(npx tsc)",
-      "Exec(printf)"
+      "Exec(printf)",
+      "Exec(/bin/ls)"
     ]
   }
 }
