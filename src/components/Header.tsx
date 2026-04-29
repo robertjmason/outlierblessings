@@ -29,6 +29,9 @@ const Header = () => {
             <a href="/#collection" onClick={handleCollectionClick} className="link-elegant text-sm uppercase">
               Collection
             </a>
+            <Link to="/about-the-artist" className="link-elegant text-sm uppercase">
+              About the Artist
+            </Link>
           </div>
         </nav>
       </div>
