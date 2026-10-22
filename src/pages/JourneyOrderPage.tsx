@@ -24,7 +24,6 @@ import {
   CreditCard,
   MapPin,
   Clock,
-  Phone,
   Mail,
   Copy,
   Printer,
@@ -399,7 +398,7 @@ const JourneyOrderPage = () => {
       console.error("Submission error:", error);
       toast({
         title: "Submission error",
-        description: "There was an issue submitting your order. Please call TK at 858-232-4588 or email tk@outlierblessings.com.",
+        description: "There was an issue submitting your order. Please email journey@outlierblessings.com.",
         variant: "destructive",
       });
     } finally {
@@ -436,15 +435,13 @@ const JourneyOrderPage = () => {
               10% of every order goes directly back to Journey Christian School!
             </p>
 
-            <div className="flex flex-wrap justify-center items-center gap-4 text-xs sm:text-sm text-muted-foreground pt-1">
-              <span className="flex items-center gap-1.5">
-                <Phone className="w-4 h-4 text-primary" />
-                <a href="tel:8582324588" className="hover:underline">858-232-4588</a>
-              </span>
-              <span>•</span>
+            <div className="flex justify-center items-center text-xs sm:text-sm text-muted-foreground pt-1">
               <span className="flex items-center gap-1.5">
                 <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:tk@outlierblessings.com" className="hover:underline">tk@outlierblessings.com</a>
+                Questions? Email{" "}
+                <a href="mailto:journey@outlierblessings.com" className="font-medium text-foreground hover:underline">
+                  journey@outlierblessings.com
+                </a>
               </span>
             </div>
           </div>
