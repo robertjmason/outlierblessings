@@ -419,7 +419,7 @@ const JourneyOrderPage = () => {
       <Header />
 
       <main className="pt-24 pb-20">
-        <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
           {/* Header Banner */}
           <div className="text-center space-y-4 mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs sm:text-sm font-medium">
@@ -583,7 +583,7 @@ const JourneyOrderPage = () => {
             </Card>
           ) : (
             /* Order Form */
-            <form onSubmit={handleSubmit} className="space-y-8" data-netlify="true" name="journey-christmas-order">
+            <form onSubmit={handleSubmit} data-netlify="true" name="journey-christmas-order">
               {/* Netlify & Anti-spam hidden inputs */}
               <input type="hidden" name="form-name" value="journey-christmas-order" />
               <div style={{ display: "none" }} aria-hidden="true">
@@ -598,6 +598,11 @@ const JourneyOrderPage = () => {
                   />
                 </label>
               </div>
+
+              {/* 2-Column Responsive Layout: Form on Left, Calculation on Right */}
+              <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-start">
+                {/* Left Column: Form Sections 1 to 7 */}
+                <div className="lg:col-span-7 xl:col-span-8 space-y-8">
 
               {/* SECTION 1: Your Information */}
               <Card className="border-border">
@@ -1078,9 +1083,12 @@ const JourneyOrderPage = () => {
                   </div>
                 </CardContent>
               </Card>
+            </div>
 
+            {/* Right Column: Sticky Order Calculation Sidebar */}
+            <div className="lg:col-span-5 xl:col-span-4 mt-8 lg:mt-0 lg:sticky lg:top-24 space-y-4">
               {/* SECTION 8: Real-Time Order Summary Card & Total */}
-              <Card className="border-primary/40 bg-card shadow-lg sticky bottom-4 z-40">
+              <Card className="border-primary/40 bg-card shadow-md">
                 <CardContent className="pt-6 pb-6 space-y-4">
                   <div className="flex items-center justify-between border-b border-border pb-3">
                     <div className="flex items-center gap-2">
@@ -1091,6 +1099,16 @@ const JourneyOrderPage = () => {
                       {orderDetails.totalItemCount} {orderDetails.totalItemCount === 1 ? "item" : "items"}
                     </Badge>
                   </div>
+
+                  {orderDetails.itemsList.length > 0 && (
+                    <div className="max-h-40 overflow-y-auto space-y-1.5 text-xs text-muted-foreground border-b border-border pb-3">
+                      {orderDetails.itemsList.map((item, idx) => (
+                        <div key={idx} className="flex justify-between items-start gap-2">
+                          <span className="line-clamp-1 flex-1">• {item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   <div className="space-y-1.5 text-sm">
                     <div className="flex justify-between text-muted-foreground">
@@ -1130,7 +1148,7 @@ const JourneyOrderPage = () => {
                     <div className="p-2.5 rounded bg-green-50 border border-green-200 text-green-800 text-xs sm:text-sm flex items-center justify-between mt-2">
                       <span className="font-medium flex items-center gap-1.5">
                         <School className="w-4 h-4 text-green-700" />
-                        Journey Christian School receives:
+                        Journey School receives:
                       </span>
                       <span className="font-mono font-bold text-green-800">
                         ${orderDetails.schoolDonation.toFixed(2)}
@@ -1151,7 +1169,9 @@ const JourneyOrderPage = () => {
                   </Button>
                 </CardContent>
               </Card>
-            </form>
+            </div>
+          </div>
+        </form>
           )}
         </div>
       </main>
