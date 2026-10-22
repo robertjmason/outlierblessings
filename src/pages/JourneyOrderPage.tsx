@@ -347,7 +347,7 @@ const JourneyOrderPage = () => {
       neededBy: personalization.neededBy.trim(),
       bibleVerse: personalization.bibleVerse.trim(),
       delivery: delivery === "booth-dec-2" ? "Pick up at Booth, Journey Christmas Market (Dec 2)" : "Pick up from TK",
-      payment: payment === "venmo" ? "Venmo (@tkmc555)" : payment === "zelle" ? "Zelle (Terri-Kim Mason, 858-232-4588)" : "Cash",
+      payment: payment === "venmo" ? "Venmo" : payment === "zelle" ? "Zelle" : "Cash",
       subtotal: orderDetails.subtotal.toFixed(2),
       engravingFee: orderDetails.engravingFee.toFixed(2),
       discount: orderDetails.discount.toFixed(2),
@@ -495,7 +495,19 @@ const JourneyOrderPage = () => {
                 <div className="bg-muted/50 p-4 sm:p-6 rounded-lg space-y-4 border border-border">
                   <div className="flex flex-wrap justify-between items-center gap-2 border-b border-border pb-3">
                     <span className="text-sm text-muted-foreground">Order Reference:</span>
-                    <span className="font-mono font-semibold text-foreground text-base">{submittedOrder.orderId}</span>
+                    <span className="font-mono font-semibold text-foreground text-base flex items-center gap-1.5">
+                      {submittedOrder.orderId}
+                      <Button
+                        type="button"
+                        size="icon"
+                        variant="ghost"
+                        className="h-6 w-6"
+                        onClick={() => copyToClipboard(submittedOrder.orderId, "Order ID")}
+                        title="Copy Order ID"
+                      >
+                        <Copy className="w-3.5 h-3.5" />
+                      </Button>
+                    </span>
                   </div>
                   <div className="flex flex-wrap justify-between items-center gap-2 border-b border-border pb-3">
                     <span className="text-sm text-muted-foreground">Parent / Contact:</span>
@@ -539,43 +551,14 @@ const JourneyOrderPage = () => {
                 <div className="border border-primary/20 bg-primary/5 p-5 rounded-lg space-y-3">
                   <h4 className="font-serif text-lg font-medium text-foreground flex items-center gap-2">
                     <CreditCard className="w-5 h-5 text-primary" />
-                    Payment Instructions
+                    Payment Details
                   </h4>
-                  <p className="text-sm text-muted-foreground">
-                    Please submit your payment of <strong>${submittedOrder.total}</strong> via {submittedOrder.payment}.
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Total Due: <strong>${submittedOrder.total}</strong> via <strong>{submittedOrder.payment}</strong>.
+                    {submittedOrder.payment === "Cash"
+                      ? " Please bring cash with you at the time of pickup."
+                      : " TK will contact you directly with payment details for your order, or you may complete payment upon pickup."}
                   </p>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
-                    <div className="p-3 bg-background rounded border border-border flex items-center justify-between">
-                      <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Venmo</div>
-                        <div className="font-medium text-foreground">@tkmc555</div>
-                      </div>
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => copyToClipboard("@tkmc555", "Venmo handle")}
-                      >
-                        <Copy className="w-4 h-4" />
-                      </Button>
-                    </div>
-
-                    <div className="p-3 bg-background rounded border border-border flex items-center justify-between">
-                      <div>
-                        <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold">Zelle</div>
-                        <div className="font-medium text-foreground">Terri-Kim Mason (858-232-4588)</div>
-                      </div>
-                      <Button
-                        type="button"
-                        size="sm"
-                        variant="ghost"
-                        onClick={() => copyToClipboard("858-232-4588", "Zelle phone number")}
-                      >
-                        <Copy className="w-4 h-4" />
-                      </Button>
-                    </div>
-                  </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-3 pt-2">
@@ -1079,13 +1062,13 @@ const JourneyOrderPage = () => {
                       <div className="flex items-center space-x-2 p-3 rounded-lg border border-border bg-card cursor-pointer hover:border-primary/40">
                         <RadioGroupItem value="venmo" id="payment-venmo" />
                         <Label htmlFor="payment-venmo" className="cursor-pointer text-sm font-medium">
-                          Venmo (@tkmc555)
+                          Venmo
                         </Label>
                       </div>
                       <div className="flex items-center space-x-2 p-3 rounded-lg border border-border bg-card cursor-pointer hover:border-primary/40">
                         <RadioGroupItem value="zelle" id="payment-zelle" />
                         <Label htmlFor="payment-zelle" className="cursor-pointer text-sm font-medium">
-                          Zelle (858-232-4588)
+                          Zelle
                         </Label>
                       </div>
                       <div className="flex items-center space-x-2 p-3 rounded-lg border border-border bg-card cursor-pointer hover:border-primary/40">
