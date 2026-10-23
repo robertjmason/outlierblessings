@@ -37,6 +37,9 @@ describe("ProductPage", () => {
     expect(screen.getByRole("button", { name: /previous image/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /next image/i })).toBeInTheDocument();
     expect(screen.getByRole("region", { name: /thumbnail previews/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Example 1$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Example 1 \(back\)$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Example 2$/i })).toBeInTheDocument();
   });
 
   it("renders Walking on Water with copy and carousel slideshow", () => {
@@ -50,6 +53,11 @@ describe("ProductPage", () => {
     expect(screen.getByRole("button", { name: /previous image/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /next image/i })).toBeInTheDocument();
     expect(screen.getByRole("region", { name: /thumbnail previews/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Front-engraved$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Back-engraved$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Back-engraved \(back\)$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Western Red Cedar Backing$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Western Red Cedar Backing \(back\)$/i })).toBeInTheDocument();
   });
 
   it("renders Product Not Found for unknown slug", () => {

@@ -5,10 +5,13 @@ import shatteredImg from "@/assets/shattered1.png";
 
 import walkingFrontImg from "@/assets/walking_on_water-front.webp";
 import walkingVar1Img from "@/assets/walking_on_water-variant1.webp";
+import walkingBackImg from "@/assets/walking_on_water-back.webp";
 import walkingCedarImg from "@/assets/walking_on_water-western_red_cedar.webp";
+import walkingCedarBackImg from "@/assets/walking_on_water-western_red_cedar-back.webp";
 
 import howGreatThouArtImg from "@/assets/how_great_thou_art.webp";
 import mightierFrontImg from "@/assets/mightier_than_the_waves-satin.webp";
+import mightierBackImg from "@/assets/mightier_than_the_waves-back.webp";
 import mightierVar1Img from "@/assets/mightier_than_the_waves-satin-variant1.webp";
 
 export interface ProductImageVariant {
@@ -69,13 +72,18 @@ He is.`,
     images: [
       {
         src: mightierFrontImg,
-        title: "Front View",
-        alt: "Mightier than the Waves Cross - Front View",
+        title: "Example 1",
+        alt: "Mightier than the Waves Cross - Example 1",
+      },
+      {
+        src: mightierBackImg,
+        title: "Example 1 (back)",
+        alt: "Mightier than the Waves Cross - Example 1 (back)",
       },
       {
         src: mightierVar1Img,
-        title: "Resin & Glass Detail",
-        alt: "Mightier than the Waves Cross - Resin & Glass Detail",
+        title: "Example 2",
+        alt: "Mightier than the Waves Cross - Example 2",
       },
     ],
   },
@@ -105,18 +113,28 @@ Fix your eyes above the waves. Not on them. That's how you keep walking.`,
     images: [
       {
         src: walkingFrontImg,
-        title: "Front View",
-        alt: "Walking on Water Cross - Front View",
+        title: "Front-engraved",
+        alt: "Walking on Water Cross - Front-engraved",
       },
       {
         src: walkingVar1Img,
-        title: "Resin & Glass Detail",
-        alt: "Walking on Water Cross - Resin & Glass Detail",
+        title: "Back-engraved",
+        alt: "Walking on Water Cross - Back-engraved",
+      },
+      {
+        src: walkingBackImg,
+        title: "Back-engraved (back)",
+        alt: "Walking on Water Cross - Back-engraved (back)",
       },
       {
         src: walkingCedarImg,
         title: "Western Red Cedar Backing",
         alt: "Walking on Water Cross - Western Red Cedar Backing",
+      },
+      {
+        src: walkingCedarBackImg,
+        title: "Western Red Cedar Backing (back)",
+        alt: "Walking on Water Cross - Western Red Cedar Backing (back)",
       },
     ],
   },
