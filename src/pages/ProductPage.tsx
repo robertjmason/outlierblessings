@@ -4,6 +4,7 @@ import { getProductBySlug, products } from "@/data/products";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import InquiryModal from "@/components/InquiryModal";
+import CrossImageSlideshow from "@/components/CrossImageSlideshow";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 
@@ -50,15 +51,27 @@ const ProductPage = () => {
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-            {/* Product Image */}
+            {/* Product Image / Slideshow */}
             <div className="opacity-0 animate-fade-in">
-              <div className="overflow-hidden rounded-sm bg-navy/5">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-auto"
+              {product.images && product.images.length > 1 && product.useSlideshow ? (
+                <CrossImageSlideshow
+                  images={product.images}
+                  title={product.name}
+                  autoPlayInterval={4500}
+                  showThumbnails={true}
+                  showArrows={true}
+                  showDots={true}
+                  showPlayPauseToggle={true}
                 />
-              </div>
+              ) : (
+                <div className="overflow-hidden rounded-sm bg-navy/5">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-auto"
+                  />
+                </div>
+              )}
             </div>
 
             {/* Product Details */}
@@ -67,9 +80,15 @@ const ProductPage = () => {
                 {product.name}
               </h1>
 
-              <p className="text-body text-lg leading-relaxed mb-8">
+              {product.verse && (
+                <blockquote className="border-l-2 border-accent pl-4 italic text-muted-foreground mb-6 font-serif text-lg leading-relaxed">
+                  {product.verse}
+                </blockquote>
+              )}
+
+              <div className="text-body text-lg leading-relaxed mb-8 whitespace-pre-line space-y-4">
                 {product.description}
-              </p>
+              </div>
 
               <p className="font-sans text-muted-foreground mb-10">
                 {product.availability}
@@ -95,7 +114,7 @@ const ProductPage = () => {
               <h2 className="heading-section text-foreground text-center mb-12">
                 More From Our Collection
               </h2>
-              <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 {otherProducts.map((p) => (
                   <Link
                     key={p.id}
