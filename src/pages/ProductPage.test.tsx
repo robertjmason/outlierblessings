@@ -26,14 +26,26 @@ describe("ProductPage", () => {
     expect(screen.getByAltText("How Great Thou Art")).toBeInTheDocument();
   });
 
-  it("renders Mightier than the Waves with copy and carousel slideshow", () => {
+  it("renders Mightier than the Waves with copy and single image", () => {
     renderProductPage("mightier-than-the-waves");
 
     expect(screen.getByRole("heading", { level: 1, name: "Mightier than the Waves" })).toBeInTheDocument();
     expect(screen.getByText(/Psalm 93:4/i)).toBeInTheDocument();
     expect(screen.getByText(/The ocean doesn't ask permission either/i)).toBeInTheDocument();
 
-    // Mightier has multiple images with useSlideshow, so carousel controls are present
+    // Mightier currently has a single image, so carousel controls are not rendered
+    expect(screen.queryByRole("button", { name: /previous image/i })).not.toBeInTheDocument();
+    expect(screen.getByAltText("Mightier than the Waves")).toBeInTheDocument();
+  });
+
+  it("renders Deep Waters with copy and carousel slideshow", () => {
+    renderProductPage("deep-waters");
+
+    expect(screen.getByRole("heading", { level: 1, name: "Deep Waters" })).toBeInTheDocument();
+    expect(screen.getAllByText(/Isaiah 43:2/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByText(/Some storms don't stay at the edges/i)).toBeInTheDocument();
+
+    // Deep Waters has multiple images with useSlideshow, so carousel controls are present
     expect(screen.getByRole("button", { name: /previous image/i })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /next image/i })).toBeInTheDocument();
     expect(screen.getByRole("region", { name: /thumbnail previews/i })).toBeInTheDocument();
