@@ -2,6 +2,7 @@ import santoriniImg from "@/assets/santorini.png";
 import redeemedImg from "@/assets/redeemed.jpg";
 import oHolyNightImg from "@/assets/o-holy-night.jpg";
 import shatteredImg from "@/assets/shattered1.png";
+import shatteredCedarSatinImg from "@/assets/shattered_not_broken_satin.webp";
 
 import walkingFrontImg from "@/assets/walking_on_water-front.webp";
 import walkingVar1Img from "@/assets/walking_on_water-variant1.webp";
@@ -51,7 +52,7 @@ Every swirl in this resin is different. No two came out the same, same as no two
 
 How great Thou art.`,
     image: howGreatThouArtImg,
-    availability: 'Available in 24", 20", and 14" sizes.',
+    availability: 'Available in 20" and 14" sizes.',
   },
   {
     id: "mightier-than-the-waves",
@@ -70,7 +71,7 @@ That's the whole message here. Your storm might be real. It might be crashing ri
 
 He is.`,
     image: mightierFrontImg,
-    availability: 'Available in 24", 20", and 14" sizes.',
+    availability: 'Available in 20" and 14" sizes.',
   },
   {
     id: "deep-waters",
@@ -89,7 +90,7 @@ Like every cross I make, this one carries a mustard seed on the back, set just b
 
 The waters may be deep. He is deeper still.`,
     image: deepWatersFrontImg,
-    availability: 'Available in 24", 20", and 14" sizes.',
+    availability: 'Available in 20" and 14" sizes.',
     useSlideshow: true,
     images: [
       {
@@ -130,7 +131,7 @@ That's the promise. Not that the sea goes flat before you trust Him. That He is 
 
 Fix your eyes above the waves. Not on them. That's how you keep walking.`,
     image: walkingFrontImg,
-    availability: 'Available in 24", 20", and 14" sizes.',
+    availability: 'Available in 20" and 14" sizes.',
     useSlideshow: true,
     images: [
       {
@@ -166,7 +167,7 @@ Fix your eyes above the waves. Not on them. That's how you keep walking.`,
     slug: "santorini",
     description: "Cobalt, azure, and mirrored glass reflect the Mediterranean's brilliant blues and coastal beauty. Inspired by Santorini's Three Bells church, this cross will bring light and life to any room. Custom engraving available.",
     image: santoriniImg,
-    availability: 'Available in 24", 20", and 14" sizes.',
+    availability: 'Available in 20" and 14" sizes.',
   },
   {
     id: "the-redeemed",
@@ -174,7 +175,7 @@ Fix your eyes above the waves. Not on them. That's how you keep walking.`,
     slug: "the-redeemed",
     description: "Frosted, iridescent, mirrored, and shattered tempered glass float against a luminous white background in a testament to the joy and glory of redemption. Each hand-placed element reflects light, a radiant reminder of the hope found in being reconciled to Jesus Christ.",
     image: redeemedImg,
-    availability: 'Available in 24", 20", and 14" sizes.',
+    availability: 'Available in 20" and 14" sizes.',
   },
   {
     id: "shattered-but-not-broken",
@@ -182,7 +183,20 @@ Fix your eyes above the waves. Not on them. That's how you keep walking.`,
     slug: "shattered-but-not-broken",
     description: "Beautiful hand-placed shattered tempered glass illustrates how we may be shattered, but never broken thanks to the love of the Lord.",
     image: shatteredImg,
-    availability: 'Available in 24", 20", and 14" sizes.',
+    availability: 'Available in 20" and 14" sizes.',
+    useSlideshow: true,
+    images: [
+      {
+        src: shatteredImg,
+        title: "Full shattered glass",
+        alt: "Shattered But Not Broken Cross - Full shattered glass",
+      },
+      {
+        src: shatteredCedarSatinImg,
+        title: "Front engraving, Western Red Cedar backing",
+        alt: "Shattered But Not Broken Cross - Front engraving, Western Red Cedar backing",
+      },
+    ],
   },
   {
     id: "o-holy-night",

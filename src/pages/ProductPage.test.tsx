@@ -72,6 +72,17 @@ describe("ProductPage", () => {
     expect(screen.getByRole("button", { name: /^select Western Red Cedar Backing \(back\)$/i })).toBeInTheDocument();
   });
 
+  it("renders Shattered But Not Broken with carousel slideshow and new variant", () => {
+    renderProductPage("shattered-but-not-broken");
+
+    expect(screen.getByRole("heading", { level: 1, name: "Shattered But Not Broken" })).toBeInTheDocument();
+    expect(screen.getByText(/Available in 20" and 14" sizes\./i)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /previous image/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /next image/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Full shattered glass$/i })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /^select Front engraving, Western Red Cedar backing$/i })).toBeInTheDocument();
+  });
+
   it("renders Product Not Found for unknown slug", () => {
     renderProductPage("unknown-cross");
 
