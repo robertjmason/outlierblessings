@@ -1,6 +1,8 @@
 import santoriniImg from "@/assets/santorini.png";
 import redeemedImg from "@/assets/redeemed.jpg";
 import oHolyNightImg from "@/assets/o-holy-night.jpg";
+import oLittleTownOfBethlehemImg from "@/assets/o_little_town_of_bethlehem.webp";
+import angelsWeHaveHeardOnHighImg from "@/assets/angels_we_have_heard_on_high.webp";
 import shatteredImg from "@/assets/shattered1.png";
 import shatteredCedarSatinImg from "@/assets/shattered_not_broken_satin.webp";
 
@@ -32,6 +34,7 @@ export interface Product {
   images?: Array<string | ProductImageVariant>;
   useSlideshow?: boolean;
   verse?: string;
+  collection?: "main" | "reason-for-the-season";
 }
 
 export const products: Product[] = [
@@ -202,8 +205,48 @@ Fix your eyes above the waves. Not on them. That's how you keep walking.`,
     id: "o-holy-night",
     name: "O Holy Night",
     slug: "o-holy-night",
-    description: "Engraved wood preserves the sacred silence of the first Christmas night. The timeless silhouette depicts the Nativity: the Holy Family, shepherds, and magi under a starlit Bethlehem sky. A beautiful celebration of the true \"reason for the season.\"",
+    collection: "reason-for-the-season",
+    verse: "“Today in the town of David a Savior has been born to you; he is the Messiah, the Lord.” Luke 2:11",
+    description: `This is the night everything changed. A stable, a young mother, a tired father, and a baby who came to save the world. Kings traveled from far away just to bow before Him.
+
+I love this cross because it holds the whole story in one place. Every time I engrave it, I think about how God chose the quietest, humblest spot on earth to do the biggest thing He has ever done.
+
+Like every cross I make, this one carries a mustard seed on the back, set just beneath the verse, a reminder that the greatest gift came wrapped in something small.
+
+Fall on your knees. He is here.`,
     image: oHolyNightImg,
+    availability: 'Available in 14".',
+  },
+  {
+    id: "o-little-town-of-bethlehem",
+    name: "O Little Town of Bethlehem",
+    slug: "o-little-town-of-bethlehem",
+    collection: "reason-for-the-season",
+    verse: "“For unto us a child is born, unto us a son is given: and the government shall be upon his shoulder: and his name shall be called Wonderful, Counsellor, The mighty God, The everlasting Father, The Prince of Peace.” Isaiah 9:6 KJV",
+    description: `Bethlehem was a small town. Nobody expected anything big to happen there. And then one night, a star stopped right over it.
+
+This cross captures that moment. The star shining down, the windows glowing with candlelight, a whole town about to wake up to the greatest news in history. God loves to do big things in small places. He still does.
+
+Like every cross I make, this one carries a mustard seed on the back, set just beneath the verse, a reminder that God starts His biggest stories with the smallest beginnings.
+
+Unto us a child is born.`,
+    image: oLittleTownOfBethlehemImg,
+    availability: 'Available in 14".',
+  },
+  {
+    id: "angels-we-have-heard-on-high",
+    name: "Angels We Have Heard on High",
+    slug: "angels-we-have-heard-on-high",
+    collection: "reason-for-the-season",
+    verse: "“Glory to God in the highest heaven, and on earth peace to those on whom his favor rests.” Luke 2:14",
+    description: `Heaven couldn't keep quiet. The night Jesus was born, the sky filled with angels, and the very first people to hear the news were shepherds on a hillside, ordinary people doing ordinary work.
+
+That's my favorite part of this story. God didn't send the announcement to a palace. He sent it to the field. Look at the shepherd at the bottom of this cross, pointing up. That's what this cross is for: a reminder to look up, because good news is coming, even for you.
+
+Like every cross I make, this one carries a mustard seed on the back, set just beneath the verse, a reminder that a little faith is enough to hear heaven sing.
+
+Glory to God in the highest.`,
+    image: angelsWeHaveHeardOnHighImg,
     availability: 'Available in 14".',
   },
 ];

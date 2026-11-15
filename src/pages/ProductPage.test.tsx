@@ -83,6 +83,33 @@ describe("ProductPage", () => {
     expect(screen.getByRole("button", { name: /^select Front engraving, Western Red Cedar backing$/i })).toBeInTheDocument();
   });
 
+  it("renders O Holy Night with copy, verse, and single image", () => {
+    renderProductPage("o-holy-night");
+
+    expect(screen.getByRole("heading", { level: 1, name: "O Holy Night" })).toBeInTheDocument();
+    expect(screen.getByText(/Luke 2:11/i)).toBeInTheDocument();
+    expect(screen.getByText(/This is the night everything changed/i)).toBeInTheDocument();
+    expect(screen.getByAltText("O Holy Night")).toBeInTheDocument();
+  });
+
+  it("renders O Little Town of Bethlehem with copy, verse, and single image", () => {
+    renderProductPage("o-little-town-of-bethlehem");
+
+    expect(screen.getByRole("heading", { level: 1, name: "O Little Town of Bethlehem" })).toBeInTheDocument();
+    expect(screen.getByText(/Isaiah 9:6/i)).toBeInTheDocument();
+    expect(screen.getByText(/Bethlehem was a small town/i)).toBeInTheDocument();
+    expect(screen.getByAltText("O Little Town of Bethlehem")).toBeInTheDocument();
+  });
+
+  it("renders Angels We Have Heard on High with copy, verse, and single image", () => {
+    renderProductPage("angels-we-have-heard-on-high");
+
+    expect(screen.getByRole("heading", { level: 1, name: "Angels We Have Heard on High" })).toBeInTheDocument();
+    expect(screen.getByText(/Luke 2:14/i)).toBeInTheDocument();
+    expect(screen.getByText(/Heaven couldn't keep quiet/i)).toBeInTheDocument();
+    expect(screen.getByAltText("Angels We Have Heard on High")).toBeInTheDocument();
+  });
+
   it("renders Product Not Found for unknown slug", () => {
     renderProductPage("unknown-cross");
 

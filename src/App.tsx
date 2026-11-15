@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import ProductPage from "./pages/ProductPage";
 import AboutArtist from "./pages/AboutArtist";
 import JourneyOrderPage from "./pages/JourneyOrderPage";
+import VillageOrderPage from "./pages/VillageOrderPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/journey" element={<JourneyOrderPage />} />
           <Route path="/journey-christian-school" element={<JourneyOrderPage />} />
           <Route path="/journey-christmas" element={<JourneyOrderPage />} />
+          <Route path="/village" element={<VillageOrderPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

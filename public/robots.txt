@@ -2,5 +2,6 @@ User-agent: *
 Disallow: /journey
 Disallow: /journey-christian-school
 Disallow: /journey-christmas
+Disallow: /village
 Allow: /
 
