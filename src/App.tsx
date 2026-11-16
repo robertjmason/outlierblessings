@@ -9,6 +9,7 @@ import AboutArtist from "./pages/AboutArtist";
 import JourneyOrderPage from "./pages/JourneyOrderPage";
 import VillageOrderPage from "./pages/VillageOrderPage";
 import NotFound from "./pages/NotFound";
+import AnalyticsTracker from "./components/AnalyticsTracker";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <AnalyticsTracker />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/product/:slug" element={<ProductPage />} />
