@@ -3,6 +3,7 @@ import redeemedImg from "@/assets/redeemed.jpg";
 import oHolyNightImg from "@/assets/o-holy-night.jpg";
 import oLittleTownOfBethlehemImg from "@/assets/o_little_town_of_bethlehem.webp";
 import angelsWeHaveHeardOnHighImg from "@/assets/angels_we_have_heard_on_high.webp";
+import silentNightImg from "@/assets/silent_night.webp";
 import shatteredImg from "@/assets/shattered1.png";
 import shatteredCedarSatinImg from "@/assets/shattered_not_broken_satin.webp";
 
@@ -247,6 +248,22 @@ Like every cross I make, this one carries a mustard seed on the back, set just b
 
 Glory to God in the highest.`,
     image: angelsWeHaveHeardOnHighImg,
+    availability: 'Available in 14".',
+  },
+  {
+    id: "silent-night",
+    name: "Silent Night",
+    slug: "silent-night",
+    collection: "reason-for-the-season",
+    verse: "“She will give birth to a son, and you are to give him the name Jesus, because he will save his people from their sins.” Matthew 1:21",
+    description: `All is calm, all is bright. A mother cradling her newborn son beneath the light of a single star, in the quiet stillness of the night that changed the world forever.
+
+This cross captures that tender, sacred moment. Every line is engraved into cedar with care, holding the promise spoken before His birth: that He would be called Jesus, and He would save His people.
+
+Like every cross I make, this one carries a mustard seed on the back, set just beneath the verse, a reminder that even in the quietest moments, God is doing something extraordinary.
+
+Sleep in heavenly peace.`,
+    image: silentNightImg,
     availability: 'Available in 14".',
   },
 ];
