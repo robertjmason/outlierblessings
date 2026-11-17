@@ -216,7 +216,7 @@ Like every cross I make, this one carries a mustard seed on the back, set just b
 
 Fall on your knees. He is here.`,
     image: oHolyNightImg,
-    availability: 'Available in 14".',
+    availability: 'Available in 10" and 14".',
   },
   {
     id: "o-little-town-of-bethlehem",
@@ -232,7 +232,7 @@ Like every cross I make, this one carries a mustard seed on the back, set just b
 
 Unto us a child is born.`,
     image: oLittleTownOfBethlehemImg,
-    availability: 'Available in 14".',
+    availability: 'Available in 10" and 14".',
   },
   {
     id: "angels-we-have-heard-on-high",
@@ -248,7 +248,7 @@ Like every cross I make, this one carries a mustard seed on the back, set just b
 
 Glory to God in the highest.`,
     image: angelsWeHaveHeardOnHighImg,
-    availability: 'Available in 14".',
+    availability: 'Available in 10" and 14".',
   },
   {
     id: "silent-night",
@@ -264,7 +264,7 @@ Like every cross I make, this one carries a mustard seed on the back, set just b
 
 Sleep in heavenly peace.`,
     image: silentNightImg,
-    availability: 'Available in 14".',
+    availability: 'Available in 10" and 14".',
   },
 ];
 
